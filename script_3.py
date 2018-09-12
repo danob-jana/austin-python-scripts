@@ -23,7 +23,9 @@ def compute_totals(column_names, rows):
 
 
 def load_and_extend_iris_data():
-    'returns a tuple, (column_names, rows, totals)'
+    '''
+    returns a tuple, (column_names, rows, totals)
+    '''
     raw_iris_data = sklearn.datasets.load_iris()
     rows = [list(r) for r in raw_iris_data.data]
     column_names = list(raw_iris_data['feature_names'])

@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-# you'll need to pip install scikit-learn
 import sklearn.datasets
 
 
