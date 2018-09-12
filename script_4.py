@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# you'll need to pip install scikit-learn
+from numbers import Number
 import sklearn.datasets
 
 
@@ -30,7 +30,7 @@ class IrisData:
         for row in self.rows:
             for column_index, column_value in enumerate(row):
                 # only sum number columns
-                if not isinstance(column_value, basestring):
+                if isinstance(column_value, Number):
                     self.totals[column_index] += column_value
 
     def print_tab_separated(self):

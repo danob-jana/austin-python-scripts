@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# you'll need to pip install scikit-learn
+from numbers import Number
 import sklearn.datasets
 
 
@@ -17,7 +17,7 @@ def compute_totals(column_names, rows):
     for row in rows:
         for column_index, column_value in enumerate(row):
             # only sum number columns
-            if not isinstance(column_value, basestring):
+            if isinstance(column_value, Number):
                 totals[column_index] += column_value
     return totals
 
@@ -38,14 +38,17 @@ def load_and_extend_iris_data():
 
 
 def print_tab_separated(row):
-    # note: doesn't properly handle cases where tabs are in the strings, or
-    # unicode characters are involved.
+    # note: doesn't properly handle cases where tabs are in the strings
     print('\t'.join([str(x) for x in row]))
 
 
-if __name__ == '__main__':
+def main():
     column_names, rows, totals = load_and_extend_iris_data()
     print_tab_separated(column_names)
     for row in rows:
         print_tab_separated(row)
     print_tab_separated(totals)
+
+
+if __name__ == '__main__':
+    main()

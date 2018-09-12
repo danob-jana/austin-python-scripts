@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-# you'll need to pip install scikit-learn
+from numbers import Number
 import sklearn.datasets
 
 
-if __name__ == '__main__':
+def main():
     raw_iris_data = sklearn.datasets.load_iris()
     rows = [list(r) for r in raw_iris_data.data]
     column_names = list(raw_iris_data['feature_names'])
@@ -25,8 +25,12 @@ if __name__ == '__main__':
     for row in rows:
         for column_index, column_value in enumerate(row):
             # only sum number columns
-            if not isinstance(column_value, basestring):
+            if isinstance(column_value, Number):
                 totals[column_index] += column_value
 
     # output the totals row
     print('\t'.join([str(x) for x in totals]))
+
+
+if __name__ == '__main__':
+    main()

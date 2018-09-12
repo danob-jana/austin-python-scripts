@@ -4,7 +4,7 @@
 import sklearn.datasets
 
 
-if __name__ == '__main__':
+def main():
     raw_iris_data = sklearn.datasets.load_iris()
     rows = [list(r) for r in raw_iris_data.data]
     column_names = list(raw_iris_data['feature_names'])
@@ -19,3 +19,7 @@ if __name__ == '__main__':
     print('\t'.join(column_names))
     for row in rows:
         print('\t'.join([str(x) for x in row]))
+
+
+if __name__ == '__main__':
+    main()
